@@ -1,0 +1,48 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-13-2023
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-accordion
+    allow-multiple-sections-open
+    onsectiontoggle={handleSectionToggle}
+    active-section-name="A"
+>
+
+    <lightning-card title="Related Tables">
+        <lightning-accordion-section name="A" label="Related Contact">
+
+        <div class="tableborder">
+        <lightning-card title="Related Contact Datatable">        
+            <template if:true={contactDataAvaialble}>
+        <lightning-datatable data={conList} columns={columns} key-field="Id" hide-checkbox-column="true">
+            </lightning-datatable>
+            </template>
+        <template if:true={error}>
+            {error}
+        </template>
+        </lightning-card>
+    </div>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="B" label="Related Account">
+
+       <div class="tableborder">
+        <lightning-card title="Related Account Datatable">        
+        <template if:true={AccountDataAvaialble}>
+
+        <lightning-datatable data={data} columns={columnsforaccount} key-field="Id" hide-checkbox-column="true">
+        </lightning-datatable>
+        </template>
+        <template if:true={errorinAccount}>
+            {errorinAccount}
+        </template>
+        </lightning-card>
+       </div>
+        
+</lightning-accordion-section>
+</lightning-card>
+</lightning-accordion>
+</template>
